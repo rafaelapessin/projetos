@@ -1,0 +1,13 @@
+12
+55555;Rafaela Amorim Pessin;8.9
+11111;Lucas Souza;7.4
+77777;Rafael Pereira;9.5
+22222;Marcos Amorim Cruz;6.3
+33333;André Ferreira;9.8
+66666;Marta Simões;5.1
+10101;Laís Lira Durães;7.3
+80808;Maria Martins;5.5
+88888;Ana Clara Fernandes;8.4
+91111;Antônio Carlos Lima;7.7
+20202;Tiago Belizário;8.9
+99900;Thais Diniz;9.9
