@@ -389,7 +389,7 @@ while opcao != 6:
         nota = float(input("Digite a nota do aluno que deseja incluir: "))
         if matricula not in dictAlunos:
             dictAlunos[matricula] = [matricula, nome, nota]
-            arvore.inserir(dictAlunos[no])
+            arvore.inserir(dictAlunos[matricula])
             print("Aluno cadastrado com sucesso.")
         else:
             print("Não é possível inserir esta matrícula pois ela já existe.")
