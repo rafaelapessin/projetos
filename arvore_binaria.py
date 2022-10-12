@@ -337,7 +337,7 @@ arvore = Arvore()
 # lendo arquivo txt para inserir os elementos na árvore
 # var = [os.path.join(pathlib.Path(__file__).parent.resolve(), 'csv', nome) for nome in os.listdir(os.path.join(pathlib.Path(__file__).parent.resolve(), 'csv'))]
 # print("AQUI", os.path.join(pathlib.Path(__file__).parent.resolve(), 'alunos.txt'))
-dictAlunos = lendoArquivo(os.path.join(pathlib.Path(__file__).parent.resolve(), 'alunos.txt'))
+dictAlunos = lendoArquivo(os.path.join(pathlib.Path(__file__).parent.resolve(), 'alunosOrd.txt'))
 for no in dictAlunos:
     arvore.inserir(dictAlunos[no])
 
