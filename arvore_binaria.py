@@ -32,7 +32,7 @@ def lendoArquivo(arq):
     for linha in arquivo:
         line = linha.strip().split(";")
         if len(line) > 1:
-            dictAlunos[int(line[0])] = [int(line[0]), line[1], float(line[2])]
+            dictAlunos[int(line[0])] = [int(line[0]), line[1], float(line[2])]      # dictAlunos[matricula] = [matricula, nome, nota]
     arquivo.close()
     return dictAlunos
 
@@ -49,7 +49,7 @@ class Queue:
         self.last = None
         self._size = 0
 
-    # a função insere na fila
+    # a função insere na fila - função push() é usada para inserir um elemento no final da fila
     def push(self, elem):
         """Insere um elemento na fila"""
         node = Node(elem)
@@ -64,7 +64,7 @@ class Queue:
 
         self._size = self._size + 1
 
-    # a função remove da fila
+    # a função remove da fila - a função pop() é usada para remover um elemento da frente da fila (o elemento mais antigo na fila)
     def pop(self):
         # Remove o elemento do topo da pilha 
         if self._size > 0:
@@ -85,9 +85,9 @@ class Queue:
 class No:
     # self representa a instância da classe, sendo possível acessar os atributos e métodos da classe No
     def __init__(self, entrada, direita, esquerda):
-        self.objeto = entrada         # pega a matrícula do dicionário de alunos
-        self.dir = direita      # None         
-        self.esq = esquerda     # None
+        self.objeto = entrada           # pega a matrícula do dicionário de alunos
+        self.dir = direita              # None         
+        self.esq = esquerda             # None
 
 # Criando a classe Arvore
 class Arvore:
@@ -228,6 +228,7 @@ class Arvore:
 
             return True
 
+    # caminhamento em ordem
     def emOrdem(self, no):
         arq = open("arqSaida.txt", "w")
         arq.write("teste")
@@ -240,13 +241,14 @@ class Arvore:
             # arq.write(str(no.objeto[2]))
             self.emOrdem(no.dir)        # visita o filho a direita
         
+    # caminhamento em nível - usa o conceito de fila
     def emNivel(self, no):
         if no != None:
             no = self.root
             fila = Queue()
-            fila.push(no)
+            fila.push(no)               #  função push() é usada para inserir um elemento no final da fila
             while len(fila):
-                no = fila.pop()
+                no = fila.pop()         # função pop() é usada para remover um elemento da frente da fila (o elemento mais antigo na fila)
                 if no.esq:
                     fila.push(no.esq)
                 if no.dir:
@@ -338,7 +340,9 @@ arvore = Arvore()
 # var = [os.path.join(pathlib.Path(__file__).parent.resolve(), 'csv', nome) for nome in os.listdir(os.path.join(pathlib.Path(__file__).parent.resolve(), 'csv'))]
 # print("AQUI", os.path.join(pathlib.Path(__file__).parent.resolve(), 'alunos.txt'))
 dictAlunos = lendoArquivo(os.path.join(pathlib.Path(__file__).parent.resolve(), 'alunosOrd.txt'))
+# no = matricula (chave do dicionário)
 for no in dictAlunos:
+    # dictAlunos[no] = [matricula, nome, nota]
     arvore.inserir(dictAlunos[no])
 
 # caminhando pela árvore
